@@ -2,15 +2,21 @@ img {
   border-radius: 100%;
 }
 
+.name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-left: 3%;
+}
+
 .artist-container {
   display: flex;
   align-items: center;
-  width: 40%;
+  width: 30%;
   height: 80px;
   background-color: #282828;
   border: 1px solid #444;
   border-radius: 5px;
-  padding: .5rem;
+  padding: 0 .5rem 0 2.2rem;
   margin-bottom: 0.5rem;
   cursor: pointer;
 }
