@@ -37,6 +37,10 @@ img {
   margin-top: 30px;
 }
 
+.hovered {
+  background-color: #444;
+  border-color: #282828;
+}
 
 .spin {
   margin: 60px auto;
