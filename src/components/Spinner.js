@@ -1,6 +1,6 @@
 import React from "react";
 
-import './ArtistList.css';
+import "../styles/App.css";
 
 export default function Spinner() {
   return <div className="spin">{"🌀"}</div>;

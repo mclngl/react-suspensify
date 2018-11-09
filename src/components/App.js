@@ -5,7 +5,7 @@ import Nav from './Nav';
 import ArtistList from "./ArtistList";
 import ArtistDetail from "./ArtistDetail";
 
-import "./App.css";
+import "../styles/App.css";
 
 function App() {
   return (

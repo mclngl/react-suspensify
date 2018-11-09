@@ -2,9 +2,9 @@ import React from "react";
 
 import Container from "./Container";
 
-import { useHover } from "./hooks";
+import { useHover } from "../hooks";
 
-import "./ArtistList.css";
+import "../styles/App.css";
 import HandSign from "./HandSign";
 
 export default function ListItem({ item }) {

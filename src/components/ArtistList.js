@@ -6,7 +6,8 @@ import Container from "./Container";
 import ListItem from "./ListItem";
 import Spinner from "./Spinner";
 
-import "./ArtistList.css";
+import "../styles/App.css";
+import "../styles/ArtistList.css";
 
 function fetchArtists() {
   return axios.get("/api/artists").then(({ data }) => data.artists);
