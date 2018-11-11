@@ -1,27 +1,36 @@
-import React from "react";
+import React from 'react';
+import {navigate} from '@reach/router';
 
-import Container from "./Container";
-
-import { useHover } from "../hooks";
-
-import "../styles/ArtistList.css";
-import HandSign from "./HandSign";
+import Container from './Container';
+import Spinner from './Spinner';
+import HandSign from './HandSign';
 import Text from './Text';
-import Img from "./Img";
+import Img from './Img';
 
-export default function ListItem({ item }) {
+import {useHover} from '../hooks';
+
+import '../styles/ArtistList.css';
+
+export default function ListItem({item, onClick, curId}) {
   const [ref, isHovered] = useHover();
+
+  async function toDetails() {
+    onClick(item.id);
+    await navigate(`/a/${item.id}`);
+  }
 
   return (
     <Container
       hover={ref}
-      className={isHovered ? "artist-container hovered" : "artist-container"}
+      onClick={() => toDetails()}
+      className={isHovered ? 'artist-container hovered' : 'artist-container'}
     >
       <Container className="name-image">
-        <Img className="image" source={item.img}></Img>
-        <Text className="name" text={item.name}></Text>
+        <Img alt={item.name} className="image" source={item.img} />
+        <Text className="name" text={item.name} />
       </Container>
-      {isHovered && <HandSign className="hand" size={2} />}
+      {!curId && isHovered && <HandSign className="hand" size={2} />}
+      {curId === item.id && <Spinner className="hand" />}
     </Container>
   );
 }

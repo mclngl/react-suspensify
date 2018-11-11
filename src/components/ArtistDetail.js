@@ -1,11 +1,40 @@
 import React from 'react';
+import axios from 'axios';
+import {unstable_createResource as createResource} from 'react-cache';
 
-function ArtistDetail() {
+import Container from './Container';
+import Img from './Img';
+import Text from './Text';
+
+import '../styles/ArtistDetail.css';
+
+function fetchArtist(id) {
+  return axios.get(`/api/artist/${id}`).then(({data}) => data.artist);
+}
+
+const artistResource = createResource(fetchArtist);
+
+function ArtistDetail(props) {
   return (
-    <div>
-      
-    </div>
-  )
+    <React.Suspense fallback={<div />}>
+      <ArtistHeader id={props.id} />
+    </React.Suspense>
+  );
+}
+
+function ArtistHeader({id}) {
+  return (
+    <Container className="artist-detail">
+      <Container className="artist-header">
+        <Img
+          source={artistResource.read(id).img}
+          alt={artistResource.read(id).name}
+          className="img-header"
+        />
+        <Text style={{fontSize: '2rem'}} text={artistResource.read(id).name} />
+      </Container>
+    </Container>
+  );
 }
 
 export default ArtistDetail;

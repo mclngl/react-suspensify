@@ -1,18 +1,18 @@
-import React from "react";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import React from 'react';
+import {Router} from '@reach/router';
 
 import Nav from './Nav';
-import ArtistList from "./ArtistList";
-import ArtistDetail from "./ArtistDetail";
+import ArtistList from './ArtistList';
+import ArtistDetail from './ArtistDetail';
 
-import "../styles/App.css";
+import '../styles/App.css';
 
 function App() {
   return (
     <Router>
-      <Nav>
-        <Route exact path="/" component={ArtistList} />
-        <Route exact path="/a/:id" component={ArtistDetail} />
+      <Nav default>
+        <ArtistList path="/" />
+        <ArtistDetail path="/a/:id" />
       </Nav>
     </Router>
   );
