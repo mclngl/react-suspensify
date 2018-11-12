@@ -23,15 +23,17 @@ function ArtistDetail(props) {
 }
 
 function ArtistHeader({id}) {
+  const artist = artistResource.read(id);
+
   return (
     <Container className="artist-detail">
       <Container className="artist-header">
         <Img
-          source={artistResource.read(id).img}
-          alt={artistResource.read(id).name}
+          source={artist.img}
+          alt={artist.name}
           className="img-header"
         />
-        <Text style={{fontSize: '2rem'}} text={artistResource.read(id).name} />
+        <Text style={{fontSize: '2rem'}} text={artist.name} />
       </Container>
     </Container>
   );
