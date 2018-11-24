@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import "../styles/App.css";
+import '../styles/ArtistList.css';
 
 export default function Spinner() {
-  return <div className="spin">{"🌀"}</div>;
+  return <div className="spin">{'🌀'}</div>;
 }
