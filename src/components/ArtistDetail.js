@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {unstable_createResource as createResource} from 'react-cache';
 
+import Track from './Track';
 import Container from './Container';
 import Img from './Img';
 import Text from './Text';
@@ -28,12 +29,20 @@ function ArtistHeader({id}) {
   return (
     <Container className="artist-detail">
       <Container className="artist-header">
-        <Img
-          source={artist.img}
-          alt={artist.name}
-          className="img-header"
-        />
+        <Img source={artist.img} alt={artist.name} className="img-header" />
         <Text style={{fontSize: '2rem'}} text={artist.name} />
+      </Container>
+      <Container>
+        <Text
+          style={{fontSize: '1.5rem'}}
+          text={`${artist.followers} followers`}
+        />
+      </Container>
+      <Text text={'Top Tracks: '} />
+      <Container>
+        {artist.tracks.map(item => (
+          <Track {...item} />
+        ))}
       </Container>
     </Container>
   );
